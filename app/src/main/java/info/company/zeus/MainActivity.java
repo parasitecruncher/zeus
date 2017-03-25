@@ -29,6 +29,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 import info.company.zeus.Models.Host;
 import info.company.zeus.Models.Track;
 
@@ -41,9 +43,12 @@ public class MainActivity extends AppCompatActivity{
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     Intro intro;
+    Host_frag host_frag;
     private DatabaseReference databaseReference;
     private FirebaseDatabase firebaseDatabase;
-
+    private DatabaseReference partylist_databaseReference;
+    private ValueEventListener partylist_listener;
+    private ArrayList<Host> partylist;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,21 +76,49 @@ public class MainActivity extends AppCompatActivity{
             }
         };
         intro=new Intro();
+        host_frag=new Host_frag();
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.fragmentcontainer,intro);
+        partylist = new ArrayList<>();
+        partylist_listener=new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.e("Count " ,""+dataSnapshot.getChildrenCount());
+                partylist.clear();
+                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
+                    partylist.add(postSnapshot.getValue(Host.class));
+                }
+                try {
+                    intro.hostslist.clear();
+                    intro.hostslist.addAll(partylist);
+                    intro.partyAdapter.notifyDataSetChanged();
+                    intro.setadapter(partylist);
+                }
+                catch (Exception e){
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
+        databaseReference.child("hosts").addValueEventListener(partylist_listener);
+        //init_getpartylist();
         fragmentTransaction.commit();
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("hosts");
-
+        partylist_databaseReference = FirebaseDatabase.getInstance().getReference();
         read_firebase(formatter(auth.getCurrentUser().getEmail()));
     }
 
     public void addHost(){
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.remove(intro);
-        fragmentTransaction.add(R.id.fragmentcontainer,new Host_frag());
+        partylist_databaseReference.removeEventListener(partylist_listener);
+        fragmentTransaction.add(R.id.fragmentcontainer,host_frag);
         createHost_infirebase();
         fragmentTransaction.commit();
     }
@@ -102,7 +135,7 @@ public class MainActivity extends AppCompatActivity{
         host.addTrack(track);
         host.addTrack(track1);
         assert userId != null;
-        databaseReference.child(userId).setValue(host);
+        databaseReference.child("hosts").child(userId).setValue(host);
         read_firebase(userId);
     }
     String formatter(String a){
@@ -110,19 +143,21 @@ public class MainActivity extends AppCompatActivity{
         for (char ch: a.toCharArray()) {
             if(ch=='@')
                 return formatted;
+            if(ch=='.'||ch=='['||ch==']'||ch=='$'||ch=='#')
+                continue;
             formatted=formatted+ch;
         }
         return formatted;
     }
 
     public void read_firebase(String userID){
-        databaseReference.child(userID).addValueEventListener(new ValueEventListener() {
+        databaseReference.child("hosts").child(userID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 Host host = dataSnapshot.getValue(Host.class);
 
-                Log.d("MainActivity", " email " + host.getEmail());
+               // Log.d("MainActivity", " email " + host.getEmail());
             }
 
             @Override
@@ -131,6 +166,10 @@ public class MainActivity extends AppCompatActivity{
                 Log.w("MainActivity", "Failed to read value.", error.toException());
             }
         });
+    }
+
+    public void init_getpartylist(){
+
     }
 
     @Override

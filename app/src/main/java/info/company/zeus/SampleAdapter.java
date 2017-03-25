@@ -28,11 +28,21 @@ public class SampleAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
-        return(EditorFragment.newInstance(position));
+        switch (position){
+            case 0:
+                return Playlist_frag.newInstance(0,"Playlist");
+
+            case 1:
+                return Music_frag.newInstance(1,"Music");
+
+
+            default:
+                return null;
+        }
     }
 
     @Override
     public String getPageTitle(int position) {
-        return(EditorFragment.getTitle(ctxt, position));
+        return "Page"+ position;
     }
 }
