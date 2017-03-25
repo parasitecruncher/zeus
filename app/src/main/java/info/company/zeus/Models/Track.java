@@ -5,15 +5,21 @@ import java.util.ArrayList;
 /**
  * Created by prashanth on 3/25/17.
  */
+import com.google.firebase.database.IgnoreExtraProperties;
 
+
+@IgnoreExtraProperties
 public class Track {
-    String Name;
-    String Artist;
-    String Album;
-    long seek_value;
-    ArrayList<String> upvotes;
-    ArrayList<String> downvotes;
-    String URL;
+    public String Name;
+    public String Artist;
+    public String Album;
+    public long seek_value;
+    public  ArrayList<String> upvotes;
+    public ArrayList<String> downvotes;
+    public String URL;
+
+    public Track() {
+    }
 
     public void addUpvote(String useremail){
         if(!upvotes.contains(useremail)) {

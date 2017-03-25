@@ -75,6 +75,11 @@ public class MainActivity extends AppCompatActivity{
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.fragmentcontainer,intro);
         fragmentTransaction.commit();
+
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("hosts");
+
+        read_firebase(formatter(auth.getCurrentUser().getEmail()));
     }
 
     public void addHost(){
@@ -86,8 +91,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void createHost_infirebase(){
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("hosts");
+
         Log.d("MainActivity",databaseReference.toString());
         String userId = formatter(auth.getCurrentUser().getEmail());
         String name=auth.getCurrentUser().getDisplayName();
@@ -112,13 +116,13 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void read_firebase(String userID){
-        databaseReference.child("hosts").child(userID).addValueEventListener(new ValueEventListener() {
+        databaseReference.child(userID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 Host host = dataSnapshot.getValue(Host.class);
 
-                Log.d("MainActivity", "User name: " + host.getName() + ", email " + host.getEmail());
+                Log.d("MainActivity", " email " + host.getEmail());
             }
 
             @Override
