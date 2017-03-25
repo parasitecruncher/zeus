@@ -35,10 +35,12 @@ public class EditorFragment extends Fragment {
         View view;
         int position=getArguments().getInt(KEY_POSITION, -1);
         if(position==1){
-             view=inflater.inflate(R.layout.party_playlist_list_fragment, container, false);
+            view=inflater.inflate(R.layout.music_list_fragment, container, false);
+
         }
         else
-            view=inflater.inflate(R.layout.music_list_fragment, container, false);
+            view=inflater.inflate(R.layout.party_playlist_list_fragment, container, false);
+
         return(view);
     }
 }

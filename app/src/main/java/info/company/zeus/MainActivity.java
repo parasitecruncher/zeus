@@ -12,6 +12,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,7 +23,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import info.company.zeus.Models.Host;
+import info.company.zeus.Models.Track;
+
+import static info.company.zeus.R.id.host;
 import static info.company.zeus.R.id.progressBar;
 
 public class MainActivity extends AppCompatActivity{
@@ -31,6 +41,8 @@ public class MainActivity extends AppCompatActivity{
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     Intro intro;
+    private DatabaseReference databaseReference;
+    private FirebaseDatabase firebaseDatabase;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,7 +81,52 @@ public class MainActivity extends AppCompatActivity{
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.remove(intro);
         fragmentTransaction.add(R.id.fragmentcontainer,new Host_frag());
+        createHost_infirebase();
         fragmentTransaction.commit();
+    }
+
+    public void createHost_infirebase(){
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("hosts");
+        Log.d("MainActivity",databaseReference.toString());
+        String userId = formatter(auth.getCurrentUser().getEmail());
+        String name=auth.getCurrentUser().getDisplayName();
+        Host host=new Host(name,auth.getCurrentUser().getEmail());
+        Track track=new Track("Miracles","Coldplay","Single","http://dl.far30music.com/Music/English/Coldplay%20-%20Miracles%20[128].mp3");
+        Track track1=new Track("Outside","Calvin Harris","Single","http://dl.far30music.com/Music/English/Calvin%20Harris%20Ft.%20Ellie%20Goulding%20-%20Outside.mp3");
+        track.addUpvote("prashanthrockit");
+        host.addTrack(track);
+        host.addTrack(track1);
+        assert userId != null;
+        databaseReference.child(userId).setValue(host);
+        read_firebase(userId);
+    }
+    String formatter(String a){
+        String formatted="";
+        for (char ch: a.toCharArray()) {
+            if(ch=='@')
+                return formatted;
+            formatted=formatted+ch;
+        }
+        return formatted;
+    }
+
+    public void read_firebase(String userID){
+        databaseReference.child("hosts").child(userID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                Host host = dataSnapshot.getValue(Host.class);
+
+                Log.d("MainActivity", "User name: " + host.getName() + ", email " + host.getEmail());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("MainActivity", "Failed to read value.", error.toException());
+            }
+        });
     }
 
     @Override
