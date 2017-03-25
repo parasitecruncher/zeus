@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "880119045152",
+    "firebase_url": "https://zeus-f7935.firebaseio.com",
+    "project_id": "zeus-f7935",
+    "storage_bucket": "zeus-f7935.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:880119045152:android:c40bbc2243fd225e",
+        "android_client_info": {
+          "package_name": "info.company.zeus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "880119045152-e5kkvfgt3tcfv6d0k9q9379m6p142f0n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "info.company.zeus",
+            "certificate_hash": "9d997d9076c6754758f46147321adcb14ae38c0c"
+          }
+        },
+        {
+          "client_id": "880119045152-ktcv8di683lgkfphkf85ajsto5lf7b66.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4HB9-wM8l8ea9XjcmZAnfaYAUPPPZjRs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "880119045152-ktcv8di683lgkfphkf85ajsto5lf7b66.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
