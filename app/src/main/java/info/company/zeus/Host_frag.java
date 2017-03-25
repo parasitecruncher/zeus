@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 public class Host_frag extends Fragment {
     private static final int NUM_PAGES = 2;
     private ViewPager mPager;
+    private SampleAdapter pagerAdapter;
     
 
     @Nullable
@@ -24,11 +25,13 @@ public class Host_frag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.host_frag, container, false);
         mPager = (ViewPager) view.findViewById(R.id.viewpager);
-        mPager.setAdapter(buildAdapter());
+        pagerAdapter=  buildAdapter();
+        mPager.setAdapter(pagerAdapter);
+        
         return view;
     }
 
-    private PagerAdapter buildAdapter() {
+    private SampleAdapter buildAdapter() {
         return(new SampleAdapter(getActivity(), getChildFragmentManager()));
     }
 
