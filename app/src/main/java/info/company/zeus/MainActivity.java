@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity{
     private DatabaseReference partylist_databaseReference;
     private ValueEventListener partylist_listener;
     private ArrayList<Host> partylist;
+    private Party_frag party_frag;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,6 +121,19 @@ public class MainActivity extends AppCompatActivity{
         fragmentTransaction.remove(intro);
         partylist_databaseReference.removeEventListener(partylist_listener);
         fragmentTransaction.add(R.id.fragmentcontainer,host_frag);
+        createHost_infirebase();
+        fragmentTransaction.commit();
+    }
+
+    public void addParty(String username){
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.remove(intro);
+        partylist_databaseReference.removeEventListener(partylist_listener);
+        Bundle bundle=new Bundle();
+        bundle.putCharSequence("owner",username);
+        party_frag=new Party_frag();
+        party_frag.owner=username;
+        fragmentTransaction.add(R.id.fragmentcontainer,party_frag);
         createHost_infirebase();
         fragmentTransaction.commit();
     }

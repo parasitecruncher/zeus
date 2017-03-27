@@ -39,7 +39,8 @@ public class Intro extends Fragment {
         hostslist.add(new Host("Prashanth","prashanthrockit@gmail.com"));
         hostslist.add(new Host("Prashant","prashanthrock@gmail.com"));
         hostslist.add(new Host("Prashan","prashanthroc@gmail.com"));
-        partyAdapter = new PartyAdapter(hostslist);
+
+        partyAdapter = new PartyAdapter(hostslist, (MainActivity) getActivity());
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         party_list.setLayoutManager(mLayoutManager);
         party_list.setAdapter(partyAdapter);

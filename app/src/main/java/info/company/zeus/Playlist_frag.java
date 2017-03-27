@@ -6,6 +6,7 @@ package info.company.zeus;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ public class Playlist_frag extends Fragment {
     // Store instance variables
     private String title;
     private int page;
+    RecyclerView playlist;
 
     // newInstance constructor for creating fragment with arguments
     public static Playlist_frag newInstance(int page, String title) {
@@ -44,6 +46,7 @@ public class Playlist_frag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.party_playlist_list_fragment, container, false);
+        playlist=(RecyclerView)view.findViewById(R.id.party_listview);
 
         return view;
     }

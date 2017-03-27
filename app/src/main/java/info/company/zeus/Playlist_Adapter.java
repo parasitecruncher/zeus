@@ -15,19 +15,19 @@ import java.util.ArrayList;
 import info.company.zeus.Models.Host;
 
 /**
- * Created by prashanth on 3/25/17.
+ * Created by prashanth on 3/26/17.
  */
 
-class PartyAdapter extends RecyclerView.Adapter<PartyAdapter.MyViewHolder> {
+class Playlist_Adapter extends RecyclerView.Adapter<Playlist_Adapter.MyViewHolder> {
     private final MainActivity mainActivity;
     private ArrayList<Host> hosts;
 
-    PartyAdapter(ArrayList<Host> hosts, MainActivity mainActivity){
+    Playlist_Adapter(ArrayList<Host> hosts, MainActivity mainActivity){
         this.hosts=hosts;
         this.mainActivity=mainActivity;
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder {
+    class MyViewHolder extends RecyclerView.ViewHolder{
         TextView partyname;
 
         MyViewHolder(View view) {
