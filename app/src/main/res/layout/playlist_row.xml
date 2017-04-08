@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/playlist_row_click_container">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="Image"
+            android:id="@+id/image_row"
+            android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_row"
+            android:layout_toRightOf="@+id/image_row"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_alignRight="@+id/playlist_row_click_container"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <Button
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:id="@+id/upvote"
+                android:background="@drawable/ic_keyboard_arrow_up_black_24dp"
+
+                />
+            <Button
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:id="@+id/downvote"
+                android:layout_below="@+id/upvote"
+                android:background="@drawable/ic_keyboard_arrow_down_black_24dp"
+                />
+            </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

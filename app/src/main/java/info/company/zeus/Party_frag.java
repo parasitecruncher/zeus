@@ -34,7 +34,7 @@ public class Party_frag extends Fragment {
     }
 
     private SampleAdapter buildAdapter() {
-        return(new SampleAdapter(getActivity(), getChildFragmentManager()));
+        return(new SampleAdapter(getActivity(), getChildFragmentManager(),owner));
     }
 
     @Override

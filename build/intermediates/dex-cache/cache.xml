@@ -2,256 +2,274 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.0\support-annotations-25.3.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="dd84903d2e1af25a6081ef9038ad863cb14ca3a0">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\support-annotations-25.3.0_c864e5ad83d8d17d07024fe2176f6b41fdc99da8.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.3.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d6a04527c17597019dad82777c5094a3d60d1c33">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-25.3.0_03d8adbe32714a2cf2c2530668043f13654bab4e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\ypylibs.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="a810862bb1657c7f890e24f12268ecd210ad62dc">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\ypylibs_e7de5539ed149f572d2c473df4fd1530a6ae96c0.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.2.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ce9112e08a027c8620ae693983e38cdbb9f6371b">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-analytics-impl-10.2.0_2f1371a7f93623843565211a24947d981e1a9767.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.3.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="70f23cb87278f89aa51e6f57e8f0fd5266572d95">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.3.0_25f9b6a1676655cd05f38f3adc68ea590497d598.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\universal-image-loader-1.9.3.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="a85588bec3e2c4584d593d3f15df1677321bca72">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\universal-image-loader-1.9.3_9ae48fbffbfbaf47598bb4118e9b582c5dadb33f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.2.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="3d13e510077b35fe8e49930a627dd849ad5da0dc">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-base-10.2.0_8f9ce724b63e99abc36b14c6e607afbc56f8f2b5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.2.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="bd75f9f0296fe220da6d0ad961831b04541c4452">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-tasks-10.2.0_042d2f0c02aa12c0e19d9d7ce959295a24560758.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.6.2\f1bc476cc167b18e66c297df599b2377131a8947\gson-2.6.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="f1bc476cc167b18e66c297df599b2377131a8947">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\gson-2.6.2_1162c101d6048d3b1fdbdab70ef759c67bf31b1e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\10.2.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0e301f24b283f14b564f660c9abe863af6be5896">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-database-connection-10.2.0_13f1cd1c97a6375dbbd025e7bb65c72382a1be48.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.2.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1ac56e5801e986583cbe27f2cce57f626cc7ff93">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-10.2.0_0d5dab84728acc7e2f620b295fc3245bdb0a0b5d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\10.2.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="48532a016bb0dfbe7970c147ce784598a515406b">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-auth-10.2.0_6f7d44f2aaf73a39955b66fed1a7511676100362.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\10.2.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="a61e7010aa7be5da53cd1bc5279630510c9a4912">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-analytics-10.2.0_a37f5f4dd7c790814ce5ade259f370c55befb744.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.3.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="93c10d68ab5ea070f15782ae6d3a28d1f1d8f45e">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.3.0_4d348af5fc13038451ea81458e7425a640b6a1b9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.3.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="a3e61044038fb54cddf6b8dc79f41d2b57f42caf">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-25.3.0_5798574a08382d906287f552271f7d45ba6d41c4.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.3.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="5cc5ef8347a6bafa14556cbd35230aa9b3431bb0">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.3.0_bd6f078354ce90cfae7e6278b43114951c9392f9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.3.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="518768f3200963fbfec652f498da2c9d39245234">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.3.0_c5212af176043a6e03be47e60bd3d9c1e09cae75.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\25.3.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c5d103b270b3f3b50d8e6b44aa8e068b0de33426">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-25.3.0_d950057aa05e72aafd4af147973c9f2485d61441.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\exploded-aar\com.android.support\transition\25.3.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="fbb206f7a119f66ce171d95aae1225a5b209a8b7">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\com.android.support-transition-25.3.0_e28e7c8ce5467d9adde05fc6dbbd941ef054e6fa.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\10.2.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="94fca868854457ede6df15c902938468c71d579e">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-database-10.2.0_d98cf6cfa3406d49bb5ed1e1aeaac3182e5a2f32.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.3.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4b746ef0fd46acb5aaf3d9ab9a4cec22c28d3211">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-25.3.0_a0654ba4b41b39e0b8013e790f68969426c484e6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.3.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="425c7b17887e5c3f8cbdf67ba171bc246f29b42c">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.3.0_c5d58eb1978e99f99d272c80b04979efc95907f6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\10.2.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="3d6951cb416ebf8c66a32b9480808ca247b68344">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-iid-10.2.0_3b627eaebfe5eb53bab3031d0888d1feaf0e81a9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.3.0\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.3.0/jars/classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="93c1199fcb0a34b980e6fff8350daff62e696ec2">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-25.3.0_886e3f4a96c8aaba44f5e920c1e0aba491fdc0c6.jar" />
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.3.0_3004afa5bc97c8f204277a53bd96b4502d4ec40a/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="/home/prashanth/Android/extras/android/m2repository/com/android/support/support-annotations/25.3.0/support-annotations-25.3.0.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\com.android.volley-volley-1.0.0_23d613c4356cf7a5c32c1ce52543bd8001ca9dd3.jar" />
+        sha1="dd84903d2e1af25a6081ef9038ad863cb14ca3a0">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.3.0_7d50c2f42f24b64c6f192f3842af47a664bb70a3/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\10.2.0\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/10.2.0/jars/classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="0d5cbbbfe040201c7569478b70a13b58fd11aab4">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-common-10.2.0_39b832da509b97f0aede06b35feed43b36c3d570.jar" />
+        sha1="48532a016bb0dfbe7970c147ce784598a515406b">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-10.2.0_cba630288827d90c17f72a137c556f4e5da33d22/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.3.0\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.0/jars/classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.3.0_30e9706537d67b09293fd93bc3638eea1cf94322.jar" />
+        sha1="1ac56e5801e986583cbe27f2cce57f626cc7ff93">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-10.2.0_7e4792a1b753ab6ed5e78a509f6b1b55e96e83f9/classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\exploded-aar\com.android.support\design\25.3.0\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="94fca868854457ede6df15c902938468c71d579e">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-10.2.0_cc9e56ba34ff9e5ca806cb53b7397dd2fbf88394/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="70f23cb87278f89aa51e6f57e8f0fd5266572d95">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.3.0_44639e21e28bd9fc670a0367479fdfd33a590a10/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.3.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="518768f3200963fbfec652f498da2c9d39245234">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.3.0_4ea91490988b32a415ba341a0444c445997ad504/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/exploded-aar/com.android.support/design/25.3.0/jars/classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="9ab787a20aae245b5b3651ae0b9c38459eb37715">
-        <dex dex="C:\Users\lenovo\Documents\zeus-firebase\app\build\intermediates\pre-dexed\debug\com.android.support-design-25.3.0_dfbb612b42770fdfa1444e9c9b6211908bc75fb2.jar" />
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-25.3.0_dfb1014740d045682d612d7e85f8947d9c9d1aa7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.3.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="425c7b17887e5c3f8cbdf67ba171bc246f29b42c">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.3.0_d3d4829fc55546c8743465417c2862cba68e76fc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3d13e510077b35fe8e49930a627dd849ad5da0dc">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-10.2.0_f1b0d18dedfe3aa8964b0d4ccfd165b2ba206a73/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/universal-image-loader-1.9.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a85588bec3e2c4584d593d3f15df1677321bca72">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/2/universal-image-loader-1.9.3_b9f6345a29fec09b408db5692a3ccf704920410d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.3.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a3e61044038fb54cddf6b8dc79f41d2b57f42caf">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-25.3.0_22d35d6ce197c9fa6a0362f5cf6391ee141e0c68/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.3.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4b746ef0fd46acb5aaf3d9ab9a4cec22c28d3211">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.3.0_0c107e4a02e8871ce836d56e08e4ca4cd6ccb817/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/exploded-aar/com.android.support/transition/25.3.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fbb206f7a119f66ce171d95aae1225a5b209a8b7">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-transition-25.3.0_dd6f144a7eadf39d4514eeb5dfbf5f92aade7433/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a61e7010aa7be5da53cd1bc5279630510c9a4912">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-10.2.0_8734503d33814b73bd28d2969655877d3ac44f42/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f275c05b2c974a9559db08b3162cab91a6e5f03e">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_735cd251857acdb586ab9dc5a1d352d933a75dcb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bd75f9f0296fe220da6d0ad961831b04541c4452">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-10.2.0_985a3d2b626eb3ecd19335fae7e805958befe0f2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/ypylibs.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a810862bb1657c7f890e24f12268ecd210ad62dc">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/2/ypylibs_67b1f1eef983a570a4a674ac07a46136cfe63cda/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.6.2/f1bc476cc167b18e66c297df599b2377131a8947/gson-2.6.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f1bc476cc167b18e66c297df599b2377131a8947">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.6.2_a0307cc0824661fd4546f4194b4fe47131b452a3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ce9112e08a027c8620ae693983e38cdbb9f6371b">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-10.2.0_a2cbd67cd4d00b7f92569ed0967fe413db82119a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/25.3.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c5d103b270b3f3b50d8e6b44aa8e068b0de33426">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-cardview-v7-25.3.0_48deae54e16aebca3d7ba8a36ea0070ab714eed3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/exploded-aar/com.android.volley/volley/1.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.volley-volley-1.0.0_5c882efa69ae456190806963697ec4944c56c9a0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.3.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5cc5ef8347a6bafa14556cbd35230aa9b3431bb0">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.3.0_56df2c609900248ddab547994b5cab4b966225e4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.3.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d6a04527c17597019dad82777c5094a3d60d1c33">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.3.0_fc74f2af0e7a0458caa80d3e21e831f686a55971/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0e301f24b283f14b564f660c9abe863af6be5896">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-connection-10.2.0_b03f7717876bc63f7db0044426d162d2f535cdeb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3d6951cb416ebf8c66a32b9480808ca247b68344">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-10.2.0_9d43ac220e8c1a79d709122115bce4f76b67c4d5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0d5cbbbfe040201c7569478b70a13b58fd11aab4">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-10.2.0_99ada67dd5d9d13d51eb290dd64fb4673257f761/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.3.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="93c10d68ab5ea070f15782ae6d3a28d1f1d8f45e">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.3.0_49c498eb112c7e3da27ba616e95c85019a268ea2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.3.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.3.0_89f531c5e22cb8c264ce96f57f8bd169a4f4f145/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d3ce84cb45daaab6d04177ba06cc6c0eb41750b4">
+        <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_7854661f9ed5ec9c595656961f90389b99199b40/classes.dex" />
     </item>
 
 </items>

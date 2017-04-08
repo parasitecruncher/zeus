@@ -13,6 +13,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,26 +45,28 @@ public class MainActivity extends AppCompatActivity{
     FragmentTransaction fragmentTransaction;
     Intro intro;
     Host_frag host_frag;
+    public String auth_user;
     private DatabaseReference databaseReference;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference partylist_databaseReference;
     private ValueEventListener partylist_listener;
     private ArrayList<Host> partylist;
     private Party_frag party_frag;
-
+    public String Playlist_owner;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        toolbar.setTitle(getString(R.string.app_name));
-//        setSupportActionBar(toolbar);
+       Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(getString(R.string.app_name));
+        setSupportActionBar(toolbar);
 
         //get firebase auth instance
         auth = FirebaseAuth.getInstance();
 
         //get current user
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        auth_user=user.getEmail();
 
         authListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -118,9 +121,10 @@ public class MainActivity extends AppCompatActivity{
 
     public void addHost(){
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.remove(intro);
-        partylist_databaseReference.removeEventListener(partylist_listener);
-        fragmentTransaction.add(R.id.fragmentcontainer,host_frag);
+        //fragmentTransaction.remove(intro);
+        //partylist_databaseReference.removeEventListener(partylist_listener);
+        host_frag.owner=auth_user;
+        fragmentTransaction.replace(R.id.fragmentcontainer,host_frag);
         createHost_infirebase();
         fragmentTransaction.commit();
     }
@@ -129,13 +133,21 @@ public class MainActivity extends AppCompatActivity{
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.remove(intro);
         partylist_databaseReference.removeEventListener(partylist_listener);
-        Bundle bundle=new Bundle();
-        bundle.putCharSequence("owner",username);
+
         party_frag=new Party_frag();
         party_frag.owner=username;
         fragmentTransaction.add(R.id.fragmentcontainer,party_frag);
-        createHost_infirebase();
         fragmentTransaction.commit();
+    }
+    public void getPlaylist(Playlist_frag playlist_frag){
+        //// TODO: 3/29/17 Recieve pertaining playlist
+        for(Host h : partylist){
+            if(h.getEmail().equals(Playlist_owner)){
+                playlist_frag.Playlist_Recieved(h.getPlaylist());
+                break;
+            }
+        }
+
     }
 
     public void createHost_infirebase(){
@@ -186,7 +198,12 @@ public class MainActivity extends AppCompatActivity{
     public void init_getpartylist(){
 
     }
-
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_main, menu);
+//        return true;
+//    }
     @Override
     protected void onStart() {
         super.onStart();

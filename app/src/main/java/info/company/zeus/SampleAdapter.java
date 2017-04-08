@@ -1,6 +1,7 @@
 package info.company.zeus;
 
 import android.app.Activity;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.PagerAdapter;
 
@@ -13,11 +14,19 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 
 public class SampleAdapter extends FragmentPagerAdapter {
-    Context ctxt=null;
+    private String owner;
+    private Context ctxt=null;
 
     public SampleAdapter(Context ctxt, FragmentManager mgr) {
         super(mgr);
         this.ctxt=ctxt;
+    }
+
+    public SampleAdapter(Context ctxt, FragmentManager mgr, String owner) {
+        super(mgr);
+        this.ctxt=ctxt;
+        this.owner=owner;
+
     }
 
     @Override
@@ -30,7 +39,7 @@ public class SampleAdapter extends FragmentPagerAdapter {
 
         switch (position){
             case 0:
-                return Playlist_frag.newInstance(0,"Playlist");
+                return Playlist_frag.newInstance(0,"Playlist",owner,ctxt);
 
             case 1:
                 return Music_frag.newInstance(1,"Music");

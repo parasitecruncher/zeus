@@ -25,9 +25,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
             android:name="info.company.zeus.MainActivity"
-            android:label="@string/title_activity_profile"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="@string/title_activity_profile" />
         <activity
             android:name="info.company.zeus.SignupActivity"
             android:label="@string/title_activity_login"

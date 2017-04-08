@@ -18,7 +18,7 @@ public class Host_frag extends Fragment {
     private static final int NUM_PAGES = 2;
     private ViewPager mPager;
     private SampleAdapter pagerAdapter;
-    
+    public String owner;
 
     @Nullable
     @Override
@@ -32,7 +32,7 @@ public class Host_frag extends Fragment {
     }
 
     private SampleAdapter buildAdapter() {
-        return(new SampleAdapter(getActivity(), getChildFragmentManager()));
+        return(new SampleAdapter(getActivity(), getChildFragmentManager(),owner));
     }
 
     @Override

@@ -17,6 +17,15 @@ public class Track {
     public  ArrayList<String> upvotes;
     public ArrayList<String> downvotes;
     public String URL;
+    public String artwork;
+
+    public String getArtwork() {
+        return artwork;
+    }
+
+    public void setArtwork(String artwork) {
+        this.artwork = artwork;
+    }
 
     public Track() {
     }

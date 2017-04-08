@@ -50,6 +50,7 @@ class PartyAdapter extends RecyclerView.Adapter<PartyAdapter.MyViewHolder> {
             @Override
             public void onClick(View v) {
                 mainActivity.addParty(host.getEmail());
+                mainActivity.Playlist_owner=host.getEmail();
             }
         });
     }

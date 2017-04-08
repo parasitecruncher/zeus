@@ -36,10 +36,6 @@ public class Intro extends Fragment {
 
 
         mLayoutManager = new LinearLayoutManager(getActivity());
-        hostslist.add(new Host("Prashanth","prashanthrockit@gmail.com"));
-        hostslist.add(new Host("Prashant","prashanthrock@gmail.com"));
-        hostslist.add(new Host("Prashan","prashanthroc@gmail.com"));
-
         partyAdapter = new PartyAdapter(hostslist, (MainActivity) getActivity());
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         party_list.setLayoutManager(mLayoutManager);
@@ -48,6 +44,8 @@ public class Intro extends Fragment {
             @Override
             public void onClick(View v) {
                 mainActivity.addHost();
+                mainActivity.Playlist_owner=mainActivity.auth_user;
+
             }
         });
         return view;
