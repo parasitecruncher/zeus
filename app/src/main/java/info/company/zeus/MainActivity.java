@@ -30,9 +30,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import info.company.zeus.Models.Host;
+import info.company.zeus.Models.PlaylistListener;
 import info.company.zeus.Models.Track;
 
 import static info.company.zeus.R.id.host;
@@ -52,10 +56,14 @@ public class MainActivity extends AppCompatActivity{
     private ValueEventListener partylist_listener;
     private ArrayList<Host> partylist;
     private Party_frag party_frag;
+    public ArrayList<Track> current_PlayList;
     public String Playlist_owner;
+    public ArrayList<PlaylistListener> classes;
+    public String mode;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        classes=new ArrayList<>();
         setContentView(R.layout.activity_main);
        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(getString(R.string.app_name));
@@ -115,54 +123,64 @@ public class MainActivity extends AppCompatActivity{
         fragmentTransaction.commit();
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        partylist_databaseReference = FirebaseDatabase.getInstance().getReference();
-        read_firebase(formatter(auth.getCurrentUser().getEmail()));
-    }
+        partylist_databaseReference = FirebaseDatabase.getInstance().getReference();}
 
-    public void addHost(){
+    public void addHost() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        getPlaylist();
+        createHost_infirebase();
         fragmentTransaction = fragmentManager.beginTransaction();
         //fragmentTransaction.remove(intro);
-        //partylist_databaseReference.removeEventListener(partylist_listener);
+        partylist_databaseReference.removeEventListener(partylist_listener);
         host_frag.owner=auth_user;
         fragmentTransaction.replace(R.id.fragmentcontainer,host_frag);
-        createHost_infirebase();
+//        Log.d("DatabaseReference",databaseReference.getKey());
         fragmentTransaction.commit();
     }
 
-    public void addParty(String username){
+    public void addParty(String username) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        getPlaylist();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.remove(intro);
         partylist_databaseReference.removeEventListener(partylist_listener);
-
         party_frag=new Party_frag();
         party_frag.owner=username;
+        read_firebase(formatter(username));
         fragmentTransaction.add(R.id.fragmentcontainer,party_frag);
         fragmentTransaction.commit();
     }
-    public void getPlaylist(Playlist_frag playlist_frag){
-        //// TODO: 3/29/17 Recieve pertaining playlist
+    public void getPlaylist(){
+        //TODO: 3/29/17 Recieve pertaining playlist
         for(Host h : partylist){
             if(h.getEmail().equals(Playlist_owner)){
-                playlist_frag.Playlist_Recieved(h.getPlaylist());
+                current_PlayList=h.getPlaylist();
+                //playlist_frag.Playlist_Recieved(h.getPlaylist());
                 break;
             }
         }
-
     }
 
-    public void createHost_infirebase(){
+    public void writeplaylistchanges(){
+        databaseReference.child("hosts").child(formatter(Playlist_owner))
+                .child("playlist").setValue(current_PlayList);
+    }
+
+    public void createHost_infirebase() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
 
         Log.d("MainActivity",databaseReference.toString());
         String userId = formatter(auth.getCurrentUser().getEmail());
         String name=auth.getCurrentUser().getDisplayName();
         Host host=new Host(name,auth.getCurrentUser().getEmail());
-        Track track=new Track("Miracles","Coldplay","Single","http://dl.far30music.com/Music/English/Coldplay%20-%20Miracles%20[128].mp3");
-        Track track1=new Track("Outside","Calvin Harris","Single","http://dl.far30music.com/Music/English/Calvin%20Harris%20Ft.%20Ellie%20Goulding%20-%20Outside.mp3");
-        track.addUpvote("prashanthrockit");
-        host.addTrack(track);
-        host.addTrack(track1);
+        Boolean exists=false;
         assert userId != null;
-        databaseReference.child("hosts").child(userId).setValue(host);
+        for(Host h : partylist){
+            if(h.getEmail().equals(Playlist_owner)){
+                current_PlayList=h.getPlaylist();
+                exists=true;
+            }
+        }
+        if (!exists){
+            databaseReference.child("hosts").child(userId).setValue(host);
+        }
         read_firebase(userId);
     }
     String formatter(String a){
@@ -176,15 +194,33 @@ public class MainActivity extends AppCompatActivity{
         }
         return formatted;
     }
-
-    public void read_firebase(String userID){
+    // For reading change in owners playlist
+    public void read_firebase(String userID)throws NoSuchMethodException,InvocationTargetException, IllegalAccessException {
         databaseReference.child("hosts").child(userID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
                 Host host = dataSnapshot.getValue(Host.class);
+                current_PlayList=host.getPlaylist();
+                Iterator itr=classes.iterator();
+                for(PlaylistListener playlistListener: classes){
+                    Class cls = playlistListener.getCls();
+                    Object o= playlistListener.getO();
+                    Method method= null;
+                    try {
+                        method = (cls.cast(o)).getClass().getMethod("OnPlaylistChanged",null);
+                    } catch (NoSuchMethodException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        method.invoke(cls.cast(o),null);
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    } catch (InvocationTargetException e) {
+                        e.printStackTrace();
+                    }
+                }
+                // Log.d("MainActivity", " email " + host.getEmail());
 
-               // Log.d("MainActivity", " email " + host.getEmail());
             }
 
             @Override
@@ -195,9 +231,17 @@ public class MainActivity extends AppCompatActivity{
         });
     }
 
-    public void init_getpartylist(){
-
+    public void RegisterPlayListListeners(Class<?> cls,Object o) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+//        Method method=(cls.cast(o)).getClass().getMethod("OnPlaylistChanged",null);
+//        method.invoke(cls.cast(o),null);
+        classes.add(new PlaylistListener(cls,o));
     }
+    public void DeregisterPlayListListeners(Class<?> cls,Object o){
+        classes.remove(new PlaylistListener(cls,o));
+    }
+
+
+
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
 //        // Inflate the menu; this adds items to the action bar if it is present.

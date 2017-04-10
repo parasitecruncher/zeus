@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
 import info.company.zeus.Models.Host;
@@ -49,8 +50,16 @@ class PartyAdapter extends RecyclerView.Adapter<PartyAdapter.MyViewHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mainActivity.addParty(host.getEmail());
                 mainActivity.Playlist_owner=host.getEmail();
+                try {
+                    mainActivity.addParty(host.getEmail());
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }

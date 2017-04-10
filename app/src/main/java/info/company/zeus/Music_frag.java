@@ -6,10 +6,15 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.SearchView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.ypyproductions.utils.DBLog;
 
@@ -35,13 +40,15 @@ public class Music_frag extends Fragment {
     private String TAG="Music_frag";
     // Store instance variables based on arguments passed
     RecyclerView song_list;
-
+    Music_frag thisobject;
     MainActivity mainActivity;
     public SCAdapter scAdapter;
     ArrayList<Host> hostslist;
     LinearLayoutManager mLayoutManager;
     String keyword="";
     ArrayList<Scloud> mListNewTrackObjects;
+    private SearchView searchtext;
+
     public void responseReceived(ArrayList<Scloud> Scloudobj){
         mListNewTrackObjects.clear();
         mListNewTrackObjects.addAll(Scloudobj);
@@ -65,6 +72,7 @@ public class Music_frag extends Fragment {
         super.onCreate(savedInstanceState);
         page = getArguments().getInt("someInt", 0);
         title = getArguments().getString("someTitle");
+        thisobject=this;
     }
 
 
@@ -76,18 +84,33 @@ public class Music_frag extends Fragment {
         final String SOUNDCLOUND_CLIENT_ID = "95fdfe30992e4198d61615f62c12863a";
         final String SOUNDCLOUND_CLIENT_SECRET = "2b1691e17fc382da01fddc3220f6b5ec";
 
-        SoundCloudAPI mSoundCloud = new SoundCloudAPI(SOUNDCLOUND_CLIENT_ID, SOUNDCLOUND_CLIENT_SECRET,getActivity());
+        final SoundCloudAPI mSoundCloud = new SoundCloudAPI(SOUNDCLOUND_CLIENT_ID, SOUNDCLOUND_CLIENT_SECRET,getActivity());
         mListNewTrackObjects =new ArrayList<>();
         mLayoutManager = new LinearLayoutManager(getActivity());
         scAdapter = new SCAdapter(mListNewTrackObjects,getContext());
 
-        mSoundCloud.getListTrackObjectsByQuery(keyword, 0, 100,Music_frag.class,this);
+        //mSoundCloud.getListTrackObjectsByQuery(keyword, 0, 100,Music_frag.class,this);
         if (mListNewTrackObjects != null && mListNewTrackObjects.size() > 0) {
             DBLog.d("Response","Not null");
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         View view = inflater.inflate(R.layout.music_list_fragment, container, false);
         song_list = (RecyclerView) view.findViewById(R.id.song_listview);
+        searchtext = (SearchView) view.findViewById(R.id.SongSearch);
+        searchtext.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                mSoundCloud.getListTrackObjectsByQuery(query, 0, 10,Music_frag.class,thisobject);
+                Toast.makeText(getActivity(),query,Toast.LENGTH_SHORT).show();
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
         hostslist =new ArrayList<>();
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         song_list.setLayoutManager(mLayoutManager);

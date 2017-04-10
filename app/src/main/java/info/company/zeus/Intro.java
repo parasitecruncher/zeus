@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
 import info.company.zeus.Models.Host;
@@ -43,8 +44,16 @@ public class Intro extends Fragment {
         hostButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mainActivity.addHost();
                 mainActivity.Playlist_owner=mainActivity.auth_user;
+                try {
+                    mainActivity.addHost();
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
+                }
 
             }
         });

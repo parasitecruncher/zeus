@@ -15,6 +15,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.ImageRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.IOException;
@@ -32,10 +36,12 @@ import info.company.zeus.Models.Track;
 class Playlist_Adapter extends RecyclerView.Adapter<Playlist_Adapter.MyViewHolder> {
     private ArrayList<Track> tracks;
     private FirebaseAuth auth;
+    public MainActivity mainActivity;
 
 
-    Playlist_Adapter(ArrayList<Track> hosts, MainActivity mainActivity){
-        this.tracks=tracks;
+    public Playlist_Adapter(ArrayList<Track> hosts, MainActivity mainActivity){
+        this.tracks=hosts;
+        this.mainActivity=mainActivity;
     }
 
     public Playlist_Adapter(ArrayList<Track> tracks) {
@@ -63,25 +69,39 @@ class Playlist_Adapter extends RecyclerView.Adapter<Playlist_Adapter.MyViewHolde
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.playlist_row, parent, false);
 
-        return new MyViewHolder(itemView);    }
+        return new MyViewHolder(itemView);
+    }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
         final Track track = tracks.get(position);
         holder.trackname.setText(track.Name);
-//
         holder.upvote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                track.addUpvote(auth.getCurrentUser().getEmail());
+                if (track.upvotes==null)
+                    track.init_upvote();
+                if (track.upvotes==null)
+                    track.init_upvote();
+                track.addUpvote(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+                mainActivity.current_PlayList.remove(position);
+                mainActivity.current_PlayList.add(position,track);
+                mainActivity.writeplaylistchanges();
             }
         });
         holder.downvote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                track.addDownvote(auth.getCurrentUser().getEmail());
+                if (track.downvotes==null)
+                    track.init_downvote();
+                track.addDownvote(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+                mainActivity.current_PlayList.remove(position);
+                mainActivity.current_PlayList.add(position,track);
+                mainActivity.writeplaylistchanges();
             }
         });
+        if (track.getArtwork()!=null)
+            getBitmapFromURL(track.getArtwork(), holder.artwork);
 
     }
 
@@ -90,6 +110,17 @@ class Playlist_Adapter extends RecyclerView.Adapter<Playlist_Adapter.MyViewHolde
     public int getItemCount() {
         return tracks.size();
     }
+    private void getBitmapFromURL(String url, final ImageView iv) {
+        ImageRequest ir = new ImageRequest(url, new Response.Listener<Bitmap>() {
+            @Override
+            public void onResponse(Bitmap response) {
+                iv.setImageBitmap(response);
+            }
+        }, 0, 0, ImageView.ScaleType.CENTER,null, null);
+        RequestQueue queue = Volley.newRequestQueue(mainActivity);
+        queue.add(ir);
 
+
+    }
 
 }

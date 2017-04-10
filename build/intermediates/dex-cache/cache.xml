@@ -142,7 +142,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="f275c05b2c974a9559db08b3162cab91a6e5f03e">
+        sha1="e5ae1afa3afd2229c133db536933f25590137324">
         <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_735cd251857acdb586ab9dc5a1d352d933a75dcb/classes.dex" />
     </item>
     <item
@@ -268,7 +268,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="d3ce84cb45daaab6d04177ba06cc6c0eb41750b4">
+        sha1="d140ce5a56073b496c291bdf5d00391703fcefe9">
         <dex dex="/home/prashanth/Downloads/FirebaseAuth/FirebaseAuth/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_7854661f9ed5ec9c595656961f90389b99199b40/classes.dex" />
     </item>
 

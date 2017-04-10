@@ -23,6 +23,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import info.company.zeus.Models.Scloud;
+import info.company.zeus.Models.Track;
 
 /**
  * Created by mithun on 3/25/17.
@@ -30,11 +31,11 @@ import info.company.zeus.Models.Scloud;
 
 class SCAdapter extends RecyclerView.Adapter<SCAdapter.MyViewHolder> {
     private ArrayList<Scloud> songlist;
-    private Context context;
+    private MainActivity context;
 
     SCAdapter(ArrayList<Scloud> songlist, Context context){
         this.songlist =songlist;
-        this.context=context;
+        this.context=(MainActivity) context;
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
@@ -56,12 +57,22 @@ class SCAdapter extends RecyclerView.Adapter<SCAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        Scloud song = songlist.get(position);
+        final Scloud song = songlist.get(position);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Track track= new Track(song.title,song.getArtwork_url(),song.getStream_url());
+                if(context.current_PlayList==null)
+                    context.current_PlayList=new ArrayList<Track>();
+                context.current_PlayList.add(track);
+                context.writeplaylistchanges();
+            }
+        });
         holder.songname.setText(song.getTitle());
         getBitmapFromURL(song.artwork_url, holder.songimage);
         //holder.songimage.setImageURI(Uri.parse("https://i1.sndcdn.com/artworks-000201927280-2vsnux-large.jpg"));
     }
-/*
+    /*
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Host host = songlist.get(position);
@@ -72,7 +83,7 @@ class SCAdapter extends RecyclerView.Adapter<SCAdapter.MyViewHolder> {
     public int getItemCount() {
         return songlist.size();
     }
-    public void getBitmapFromURL(String url, final ImageView iv) {
+    private void getBitmapFromURL(String url, final ImageView iv) {
         ImageRequest ir = new ImageRequest(url, new Response.Listener<Bitmap>() {
             @Override
             public void onResponse(Bitmap response) {
@@ -81,8 +92,5 @@ class SCAdapter extends RecyclerView.Adapter<SCAdapter.MyViewHolder> {
         }, 0, 0, ImageView.ScaleType.CENTER,null, null);
         RequestQueue queue = Volley.newRequestQueue(context);
         queue.add(ir);
-
-
     }
-
 }

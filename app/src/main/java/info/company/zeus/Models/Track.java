@@ -16,11 +16,14 @@ public class Track {
     public long seek_value;
     public  ArrayList<String> upvotes;
     public ArrayList<String> downvotes;
-    public String URL;
+    public String streamURL;
     public String artwork;
 
     public String getArtwork() {
         return artwork;
+    }
+    public String getStreamURL() {
+        return streamURL;
     }
 
     public void setArtwork(String artwork) {
@@ -33,27 +36,44 @@ public class Track {
     public void addUpvote(String useremail){
         if(!upvotes.contains(useremail)) {
             upvotes.add(useremail);
-            if(downvotes.contains(useremail))
-                downvotes.remove(useremail);
+            try {
+                if(downvotes.contains(useremail))
+                    downvotes.remove(useremail);
+            }
+            catch (NullPointerException e){
+                e.printStackTrace();
+            }
+
         }
     }
 
     public void addDownvote(String useremail){
         if(!downvotes.contains(useremail)) {
             downvotes.add(useremail);
-            if(upvotes.contains(useremail))
-                upvotes.remove(useremail);
+            try {
+                if(upvotes.contains(useremail))
+                    upvotes.remove(useremail);
+            }
+            catch (NullPointerException e){
+                e.printStackTrace();
+            }
         }
     }
 
-    public Track(String name, String artist, String album, String URL) {
+    public Track(String name, String artwork, String streamURL) {
         Name = name;
-        Artist = artist;
-        Album = album;
-        seek_value = 0; //value in milliseconds
+        seek_value = -1; //value in milliseconds
+        this.artwork=artwork;
         this.upvotes = new ArrayList<>();
         this.downvotes = new ArrayList<>();
-        this.URL = URL;
+        this.streamURL = streamURL;
+    }
+
+    public void init_upvote(){
+        this.upvotes=new ArrayList<>();
+    }
+    public void init_downvote(){
+        this.downvotes=new ArrayList<>();
     }
 
     @Override
@@ -63,17 +83,18 @@ public class Track {
 
         Track track = (Track) o;
 
-        if (!Name.equals(track.Name)) return false;
-        if (!Artist.equals(track.Artist)) return false;
-        return Album.equals(track.Album);
+        if (Name != null ? !Name.equals(track.Name) : track.Name != null) return false;
+        if (streamURL != null ? !streamURL.equals(track.streamURL) : track.streamURL != null)
+            return false;
+        return artwork != null ? artwork.equals(track.artwork) : track.artwork == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = Name.hashCode();
-        result = 31 * result + Artist.hashCode();
-        result = 31 * result + Album.hashCode();
+        int result = Name != null ? Name.hashCode() : 0;
+        result = 31 * result + (streamURL != null ? streamURL.hashCode() : 0);
+        result = 31 * result + (artwork != null ? artwork.hashCode() : 0);
         return result;
     }
 }

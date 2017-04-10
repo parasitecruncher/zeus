@@ -44,4 +44,4 @@ public class Host_frag extends Fragment {
     public void onDetach() {
         super.onDetach();
     }
-}
+ }
