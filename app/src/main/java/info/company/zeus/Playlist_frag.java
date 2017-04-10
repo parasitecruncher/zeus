@@ -108,26 +108,15 @@ public class Playlist_frag extends Fragment implements PL_listener {
 
     @Override
     public void OnPlaylistChanged() {
-        ArrayList<Track> test=mainActivity.current_PlayList;
+        ArrayList<Track> test=new ArrayList<>();
+        test.addAll(mainActivity.current_PlayList);
         Log.d("Playlist_frag","The playlist has been updated");
         if ((FirebaseAuth.getInstance().getCurrentUser().getEmail()).
                 equals(mainActivity.Playlist_owner)) {
             Collections.sort(mainActivity.current_PlayList, new Comparator<Track>() {
                 @Override
                 public int compare(Track o1, Track o2) {
-                    if (o1.downvotes==null)
-                        o1.init_downvote();
-                    if (o1.upvotes==null)
-                        o1.init_upvote();
-                    if (o2.downvotes==null)
-                        o2.init_downvote();
-                    if (o2.upvotes==null)
-                        o2.init_upvote();
-                    int obj1=o1.upvotes.size()-o1.downvotes.size();
-                    int obj2=o2.upvotes.size()-o2.downvotes.size();
-                    if(obj1<obj2)
-                        return 1;
-                    return 0;
+                    return o2.netScore()-o1.netScore();
                 }
             });
             Log.d("Playlist_frag", "This is the Host");

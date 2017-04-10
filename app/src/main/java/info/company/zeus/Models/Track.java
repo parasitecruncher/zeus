@@ -18,7 +18,7 @@ public class Track {
     public ArrayList<String> downvotes;
     public String streamURL;
     public String artwork;
-
+    public int net_score;
     public String getArtwork() {
         return artwork;
     }
@@ -45,6 +45,7 @@ public class Track {
             }
 
         }
+        netScore();
     }
 
     public void addDownvote(String useremail){
@@ -58,6 +59,7 @@ public class Track {
                 e.printStackTrace();
             }
         }
+        netScore();
     }
 
     public Track(String name, String artwork, String streamURL) {
@@ -74,6 +76,15 @@ public class Track {
     }
     public void init_downvote(){
         this.downvotes=new ArrayList<>();
+    }
+
+    public int netScore(){
+        if (downvotes==null)
+            init_downvote();
+        if (upvotes==null)
+            init_upvote();
+        net_score= upvotes.size()-downvotes.size();
+        return net_score;
     }
 
     @Override
