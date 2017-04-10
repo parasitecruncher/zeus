@@ -113,7 +113,8 @@ public class Playlist_frag extends Fragment implements PL_listener {
         Log.d("Playlist_frag","The playlist has been updated");
         if ((FirebaseAuth.getInstance().getCurrentUser().getEmail()).
                 equals(mainActivity.Playlist_owner)) {
-            Collections.sort(mainActivity.current_PlayList, new Comparator<Track>() {
+            Collections.sort(mainActivity.current_PlayList
+                    git.subList(1,mainActivity.current_PlayList.size()), new Comparator<Track>() {
                 @Override
                 public int compare(Track o1, Track o2) {
                     return o2.netScore()-o1.netScore();
