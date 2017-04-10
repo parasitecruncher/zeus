@@ -16,9 +16,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -43,6 +45,7 @@ public class Playlist_frag extends Fragment implements PL_listener {
     String owner;
     MainActivity mainActivity;
     LinearLayoutManager mLayoutManager;
+    OwnerUtils ownerUtils;
 
     public Playlist_frag(){
 
@@ -71,6 +74,7 @@ public class Playlist_frag extends Fragment implements PL_listener {
         title = getArguments().getString("someTitle");
         if (tracks==null)
             tracks=new ArrayList<>();
+
     }
 
     // Inflate the view for the fragment based on layout XML
@@ -102,6 +106,17 @@ public class Playlist_frag extends Fragment implements PL_listener {
         playlist.setLayoutManager(mLayoutManager);
         playlist_adapter=new Playlist_Adapter(tracks, (MainActivity) getContext());
         playlist.setAdapter(playlist_adapter);
+        if ((FirebaseAuth.getInstance().getCurrentUser().getEmail()).
+                equals(mainActivity.Playlist_owner)) {
+            ownerUtils=new OwnerUtils(getResources().getString(R.string.SoundCloud_CLIENT_ID),this);
+
+            try {
+                ownerUtils.init();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Toast.makeText(getContext(),"Playing",Toast.LENGTH_SHORT).show();
+        }
         //mainActivity.getPlaylist(this);
         return view;
     }
@@ -114,7 +129,7 @@ public class Playlist_frag extends Fragment implements PL_listener {
         if ((FirebaseAuth.getInstance().getCurrentUser().getEmail()).
                 equals(mainActivity.Playlist_owner)) {
             Collections.sort(mainActivity.current_PlayList
-                    git.subList(1,mainActivity.current_PlayList.size()), new Comparator<Track>() {
+                    .subList(1,mainActivity.current_PlayList.size()), new Comparator<Track>() {
                 @Override
                 public int compare(Track o1, Track o2) {
                     return o2.netScore()-o1.netScore();
@@ -128,10 +143,10 @@ public class Playlist_frag extends Fragment implements PL_listener {
                 mainActivity.writeplaylistchanges();
             }
         }
-
-        //    mainActivity.writeplaylistchanges();
         this.tracks.clear();
         this.tracks.addAll(mainActivity.current_PlayList);
         playlist_adapter.notifyDataSetChanged();
+        //    mainActivity.writeplaylistchanges();
+
     }
 }

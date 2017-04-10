@@ -28,6 +28,8 @@
     <string name="btn_sign_out">Sign Out</string>
     <string name="lbl_forgot_password">Forgot password?</string>
     <string name="hint">Editor #%d</string>
+    <string name="SoundCloud_CLIENT_ID">95fdfe30992e4198d61615f62c12863a</string>
+    <string name="SoundCloud_CLIENT_SECRET">2b1691e17fc382da01fddc3220f6b5ec</string>
 
     <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions.</string>
 </resources>

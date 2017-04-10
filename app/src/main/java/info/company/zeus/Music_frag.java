@@ -2,6 +2,7 @@ package info.company.zeus;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -48,6 +49,10 @@ public class Music_frag extends Fragment {
     String keyword="";
     ArrayList<Scloud> mListNewTrackObjects;
     private SearchView searchtext;
+    final String SOUNDCLOUND_CLIENT_ID = "95fdfe30992e4198d61615f62c12863a";
+    final String SOUNDCLOUND_CLIENT_SECRET = "2b1691e17fc382da01fddc3220f6b5ec";
+    MediaPlayer mediaPlayer;
+    OwnerUtils ownerUtils;
 
     public void responseReceived(ArrayList<Scloud> Scloudobj){
         mListNewTrackObjects.clear();
@@ -81,8 +86,6 @@ public class Music_frag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ///////////////////////////////////////////////***************SOUND CLOUD************************///////////////////////////////////////////////////////////////////////////////////////
-        final String SOUNDCLOUND_CLIENT_ID = "95fdfe30992e4198d61615f62c12863a";
-        final String SOUNDCLOUND_CLIENT_SECRET = "2b1691e17fc382da01fddc3220f6b5ec";
 
         final SoundCloudAPI mSoundCloud = new SoundCloudAPI(SOUNDCLOUND_CLIENT_ID, SOUNDCLOUND_CLIENT_SECRET,getActivity());
         mListNewTrackObjects =new ArrayList<>();

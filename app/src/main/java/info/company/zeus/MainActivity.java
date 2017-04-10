@@ -4,17 +4,22 @@ import android.app.Fragment;
 //import android.app.FragmentManager;
 //import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -42,7 +47,7 @@ import info.company.zeus.Models.Track;
 import static info.company.zeus.R.id.host;
 import static info.company.zeus.R.id.progressBar;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
     FragmentManager fragmentManager;
@@ -58,10 +63,17 @@ public class MainActivity extends AppCompatActivity{
     private Party_frag party_frag;
     public ArrayList<Track> current_PlayList;
     public String Playlist_owner;
+
+
+
     public ArrayList<PlaylistListener> classes;
     public String mode;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        Window window = this.getWindow();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDark));
+        }
         super.onCreate(savedInstanceState);
         classes=new ArrayList<>();
         setContentView(R.layout.activity_main);
@@ -270,5 +282,31 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.vr_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent i4 = new Intent(Intent.ACTION_MAIN);
+        PackageManager manager = getPackageManager();
+        switch (item.getItemId()) {
+            case R.id.raindance:
+                i4 = manager.getLaunchIntentForPackage("com.Zeus.Raindance");//apk name
+                i4.addCategory(Intent.CATEGORY_LAUNCHER);
+                startActivity(i4);
+                return true;
+            case R.id.basic:
+                i4 = manager.getLaunchIntentForPackage("com.stylingandroid.vizualiser");//apk name
+                i4.addCategory(Intent.CATEGORY_LAUNCHER);
+                startActivity(i4);
+                return true;
+            default:
+                return true;
+        }
+
     }
 }
