@@ -46,7 +46,7 @@ class PartyAdapter extends RecyclerView.Adapter<PartyAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         final Host host = hosts.get(position);
-        holder.partyname.setText(host.getEmail());
+        holder.partyname.setText(MainActivity.formatter(host.getEmail()));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

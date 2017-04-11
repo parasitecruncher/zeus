@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="pagerslidingtabstrip-1.0.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.android/build-cache/4585a1811a3274a3ff97367a90e7a3fb2f2ad029/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/4585a1811a3274a3ff97367a90e7a3fb2f2ad029/output/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.astuetz/pagerslidingtabstrip/1.0.1/6a34a8358416eecbbfe6fa3a54b95d8afd4b0b39/pagerslidingtabstrip-1.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

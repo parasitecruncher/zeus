@@ -52,6 +52,14 @@ public class SampleAdapter extends FragmentPagerAdapter {
 
     @Override
     public String getPageTitle(int position) {
-        return "Page"+ position;
+        switch (position) {
+            case 0:
+                return "Playlist";
+            case 1:
+                return  "Music";
+            case 2:
+                return "Songs".toUpperCase();
+        }
+        return null;
     }
 }

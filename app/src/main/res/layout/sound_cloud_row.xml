@@ -19,8 +19,8 @@
             android:layout_height="wrap_content">
             <Toolbar
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
+                android:layout_height="wrap_content"
+                app:targetApi="lollipop">
             </Toolbar>
         </android.support.v7.widget.ActionBarContainer>
     <ImageView
@@ -32,8 +32,12 @@
         android:layout_alignParentLeft="true"/>
 
     <TextView
-        android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/colorPrimaryDark"
         android:id="@+id/text_row"
         android:layout_toRightOf="@+id/image_row"/>
     </RelativeLayout>

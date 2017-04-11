@@ -195,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
         }
         read_firebase(userId);
     }
-    String formatter(String a){
+   static String formatter(String a){
         String formatted="";
         for (char ch: a.toCharArray()) {
             if(ch=='@')
@@ -204,6 +204,7 @@ public class MainActivity extends AppCompatActivity {
                 continue;
             formatted=formatted+ch;
         }
+        formatted.toUpperCase();
         return formatted;
     }
     // For reading change in owners playlist

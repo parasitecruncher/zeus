@@ -27,6 +27,7 @@ public class Host_frag extends Fragment {
         mPager = (ViewPager) view.findViewById(R.id.viewpager);
         pagerAdapter=  buildAdapter();
         mPager.setAdapter(pagerAdapter);
+
         
         return view;
     }

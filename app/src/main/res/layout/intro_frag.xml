@@ -4,10 +4,13 @@
     android:layout_height="match_parent">
 
     <Button
-        android:text="Host"
+        android:id="@+id/host"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/host" />
+        android:backgroundTint="@color/bg_register"
+        android:elevation="0dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="Host" />
 
     <LinearLayout
         android:layout_width="match_parent"
