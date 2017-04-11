@@ -46,6 +46,7 @@ public class Playlist_frag extends Fragment implements PL_listener {
     MainActivity mainActivity;
     LinearLayoutManager mLayoutManager;
     OwnerUtils ownerUtils;
+    View v;
 
     public Playlist_frag(){
 
@@ -81,9 +82,17 @@ public class Playlist_frag extends Fragment implements PL_listener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mLayoutManager = new LinearLayoutManager(getActivity());
         View view = inflater.inflate(R.layout.party_playlist_list_fragment, container, false);
-        playlist=(RecyclerView)view.findViewById(R.id.party_playlist);
+
+        //mainActivity.getPlaylist(this);
+        v=view;
+        return view;
+    }
+
+    @Override
+    public void onStart() {
+        mLayoutManager = new LinearLayoutManager(getActivity());
+        playlist=(RecyclerView)v.findViewById(R.id.party_playlist);
         try {
             tracks=mainActivity.current_PlayList;
         }
@@ -96,7 +105,7 @@ public class Playlist_frag extends Fragment implements PL_listener {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
             e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         if (tracks==null) {
@@ -117,8 +126,7 @@ public class Playlist_frag extends Fragment implements PL_listener {
             }
             Toast.makeText(getContext(),"Playing",Toast.LENGTH_SHORT).show();
         }
-        //mainActivity.getPlaylist(this);
-        return view;
+        super.onStart();
     }
 
     @Override
@@ -143,6 +151,7 @@ public class Playlist_frag extends Fragment implements PL_listener {
                 mainActivity.writeplaylistchanges();
             }
         }
+        ownerUtils.reinit();
         this.tracks.clear();
         this.tracks.addAll(mainActivity.current_PlayList);
         playlist_adapter.notifyDataSetChanged();

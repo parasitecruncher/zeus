@@ -56,15 +56,40 @@ public class OwnerUtils {
                     mp.setDataSource(playlist_frag.mainActivity.current_PlayList.get(0)
                     .getStreamURL()+"?client_id="+CLIENT_ID);
                     mp.prepareAsync();
+                } catch (IndexOutOfBoundsException e){
+                    e.printStackTrace();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                playlist_frag.mainActivity.writeplaylistchanges();
+                try {
+                    playlist_frag.mainActivity.writeplaylistchanges();
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
             }
         });
-        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-        mediaPlayer.setDataSource(playlist_frag.mainActivity.current_PlayList.get(0)
-                .getStreamURL()+"?client_id="+CLIENT_ID);
-        mediaPlayer.prepareAsync();
+        try {
+            mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+            mediaPlayer.setDataSource(playlist_frag.mainActivity.current_PlayList.get(0)
+                    .getStreamURL()+"?client_id="+CLIENT_ID);
+            mediaPlayer.prepareAsync();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public void reinit(){
+        if(!mediaPlayer.isPlaying()){
+            try {
+                mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                mediaPlayer.setDataSource(playlist_frag.mainActivity.current_PlayList.get(0)
+                        .getStreamURL()+"?client_id="+CLIENT_ID);
+                mediaPlayer.prepareAsync();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
     }
 }
