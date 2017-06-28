@@ -11,4 +11,9 @@
         android:title="Basic"
         app:showAsAction="always"
         />
+    <item
+        android:id="@+id/party"
+        android:title="Party"
+        app:showAsAction="always"
+        />
 </menu>

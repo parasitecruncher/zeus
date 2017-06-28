@@ -49,8 +49,8 @@ public class Music_frag extends Fragment {
     String keyword="";
     ArrayList<Scloud> mListNewTrackObjects;
     private SearchView searchtext;
-    final String SOUNDCLOUND_CLIENT_ID = "95fdfe30992e4198d61615f62c12863a";
-    final String SOUNDCLOUND_CLIENT_SECRET = "2b1691e17fc382da01fddc3220f6b5ec";
+    final String SOUNDCLOUND_CLIENT_ID = "P6Ns4c5xsgsVureyV3rkYMOjS01m7UGC";
+    final String SOUNDCLOUND_CLIENT_SECRET = "q0pp4IC71AvDJYUg54uAO7WxU1dOgOAZ";
     MediaPlayer mediaPlayer;
     OwnerUtils ownerUtils;
 

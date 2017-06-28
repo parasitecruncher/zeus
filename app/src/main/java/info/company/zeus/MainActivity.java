@@ -305,6 +305,11 @@ public class MainActivity extends AppCompatActivity {
                 i4.addCategory(Intent.CATEGORY_LAUNCHER);
                 startActivity(i4);
                 return true;
+            case R.id.party:
+                i4 = manager.getLaunchIntentForPackage("com.mithun.vr");//apk name
+                i4.addCategory(Intent.CATEGORY_LAUNCHER);
+                startActivity(i4);
+                return true;
             default:
                 return true;
         }
